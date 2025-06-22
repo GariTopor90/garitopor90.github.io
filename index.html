@@ -1,86 +1,282 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GuardPilot</title>
-  <link rel="icon" type="image/png" href="logo.png" />
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    html, body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0b0f1a;
-      color: white;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #ffffff;
+      overflow-x: hidden;
     }
-    header {
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      z-index: -2;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.25;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      background-color: #131f2c;
+      z-index: 100;
     }
+
+    nav .logo {
+      color: #00cfc1;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00cfc1;
+    }
+
+    .lang-switch {
+      color: #ff7a00;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 5rem auto 0;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
     header img {
-      height: 48px;
-      margin-right: 20px;
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px #00cfc1);
     }
+
     h1 {
-      font-size: 28px;
-      color: #00ffe1;
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      color: #00cfc1;
+      text-shadow: 0 0 10px #00cfc1;
     }
-    section {
-      padding: 40px;
-      border-bottom: 1px solid #1e2a3a;
-    }
-    .title {
-      color: #E4572E;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .content {
-      font-size: 16px;
+
+    p.sub {
+      font-size: 1.2rem;
       color: #ccc;
     }
+
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.3s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.9s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      color: #ff7a00;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .cta {
+      margin-top: 2rem;
+    }
+
+    .cta button {
+      background: linear-gradient(90deg, #00cfc1, #ff7a00);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 0 10px #00cfc1;
+      transition: transform 0.3s ease;
+    }
+
+    .cta button:hover {
+      transform: scale(1.05);
+    }
+
+    .email-form {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .email-form input {
+      padding: 0.7rem;
+      border-radius: 25px;
+      border: none;
+      width: 250px;
+      margin-right: 0.5rem;
+    }
+
+    .email-form button {
+      background: #00cfc1;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+    }
+
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #131f2c;
-      color: #999;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: #888;
+    }
+
+    a {
+      color: #00cfc1;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      section {
+        padding: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="GuardPilot Logo" />
-    <h1>GuardPilot</h1>
-  </header>
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="https://www.videvo.net/videvo_files/converted/2021_10/preview/210906_08_FPVDrone_4k_008.webm67387.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
 
-  <section>
-    <div class="title">Product (MVP)</div>
-    <div class="content">Autonomous AI-powered drone for perimeter surveillance and rapid incident response.</div>
-  </section>
+  <nav>
+    <div class="logo">GuardPilot</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Demo</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="lang-switch">EN | RU</div>
+  </nav>
 
-  <section>
-    <div class="title">Technology</div>
-    <div class="content">Real-time video analysis, neural navigation, secure cloud data sync, and encrypted control systems.</div>
-  </section>
+  <div class="container">
+    <header>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Shield_icon.svg/2048px-Shield_icon.svg.png" alt="GuardPilot Logo" />
+      <h1>GuardPilot</h1>
+      <p class="sub">Autonomous Security Drone for Smart Surveillance</p>
+    </header>
 
-  <section>
-    <div class="title">Business Model</div>
-    <div class="content">Monthly subscription with tiered access, enterprise integrations, and custom AI analytics.</div>
-  </section>
+    <section>
+      <h2>About the Project</h2>
+      <p>GuardPilot is an autonomous drone-based security solution designed for 24/7 monitoring of industrial and private areas. It offers a smarter, safer, and more cost-effective way to secure your perimeter.</p>
+    </section>
 
-  <section>
-    <div class="title">Team</div>
-    <div class="content">Built by JV & AI — human intuition meets artificial precision.</div>
-  </section>
+    <section>
+      <h2>Key Features</h2>
+      <p>- Autonomous patrolling with real-time alerts<br>
+         - Intrusion detection and facial recognition<br>
+         - Controlled via secure mobile/web application<br>
+         - Works day and night, in all weather conditions</p>
+    </section>
 
-  <section>
-    <div class="title">Contact</div>
-    <div class="content">Telegram: @JV_Guard | Email: chyikin99@gmail.com</div>
-  </section>
+    <section>
+      <h2>Benefits</h2>
+      <p>Save costs on human security, reduce response time, and ensure reliable surveillance coverage with our intelligent drone technology.</p>
+    </section>
 
-  <footer>
-    &copy; 2025 GuardPilot. All rights reserved.
-  </footer>
+    <div class="cta">
+      <button>Watch Demo</button>
+    </div>
+
+    <div class="email-form">
+      <p>Subscribe to get updates:</p>
+      <input type="email" placeholder="Enter your email">
+      <button>Submit</button>
+    </div>
+
+    <footer>
+      Telegram: <a href="https://t.me/JV_Guard">@JV_Guard</a> | Email: <a href="mailto:chyikin99@gmail.com">chyikin99@gmail.com</a>
+    </footer>
+  </div>
 </body>
 </html>
