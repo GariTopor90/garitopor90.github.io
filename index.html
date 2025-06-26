@@ -7,6 +7,10 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -69,6 +73,7 @@
       color: #fff;
       text-decoration: none;
       transition: color 0.3s;
+      cursor: pointer;
     }
 
     nav ul li a:hover {
@@ -231,10 +236,10 @@
   <nav>
     <div class="logo">GuardPilot</div>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Demo</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="lang-switch">EN | RU</div>
   </nav>
@@ -246,12 +251,12 @@
       <p class="sub">Autonomous Security Drone for Smart Surveillance</p>
     </header>
 
-    <section>
+    <section id="about">
       <h2>About the Project</h2>
       <p>GuardPilot is an autonomous drone-based security solution designed for 24/7 monitoring of industrial and private areas. It offers a smarter, safer, and more cost-effective way to secure your perimeter.</p>
     </section>
 
-    <section>
+    <section id="features">
       <h2>Key Features</h2>
       <p>- Autonomous patrolling with real-time alerts<br>
          - Intrusion detection and facial recognition<br>
@@ -259,7 +264,7 @@
          - Works day and night, in all weather conditions</p>
     </section>
 
-    <section>
+    <section id="benefits">
       <h2>Benefits</h2>
       <p>Save costs on human security, reduce response time, and ensure reliable surveillance coverage with our intelligent drone technology.</p>
     </section>
@@ -268,7 +273,7 @@
       <button>Watch Demo</button>
     </div>
 
-    <div class="email-form">
+    <div class="email-form" id="contact">
       <p>Subscribe to get updates:</p>
       <input type="email" placeholder="Enter your email">
       <button>Submit</button>
@@ -280,3 +285,4 @@
   </div>
 </body>
 </html>
+
