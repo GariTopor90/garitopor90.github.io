@@ -1,288 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GuardPilot</title>
+  <!-- существующий код -->
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+    /* существующие стили */
 
     html {
       scroll-behavior: smooth;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: #000;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      z-index: -2;
-    }
-
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.25;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-    }
-
-    nav .logo {
+    nav ul li a.active {
       color: #00cfc1;
-      font-size: 1.5rem;
-      font-weight: bold;
+      text-shadow: 0 0 8px #00cfc1;
+      border-bottom: 2px solid #00cfc1;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    nav ul li a:hover {
-      color: #00cfc1;
-    }
-
-    .lang-switch {
-      color: #ff7a00;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 5rem auto 0;
-      padding: 3rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    header img {
-      width: 120px;
+    img {
+      loading: lazy;
+      display: block;
+      max-width: 100%;
       height: auto;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 0 10px #00cfc1);
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
-      color: #00cfc1;
-      text-shadow: 0 0 10px #00cfc1;
-    }
-
-    p.sub {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-
-    section {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      width: 100%;
-      box-shadow: 0 0 20px rgba(0,255,255,0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1s forwards;
-    }
-
-    section:nth-of-type(2) { animation-delay: 0.3s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    section:nth-of-type(4) { animation-delay: 0.9s; }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h2 {
-      color: #ff7a00;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ddd;
-    }
-
-    .cta {
-      margin-top: 2rem;
-    }
-
-    .cta button {
-      background: linear-gradient(90deg, #00cfc1, #ff7a00);
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      border-radius: 50px;
-      cursor: pointer;
-      color: white;
-      box-shadow: 0 0 10px #00cfc1;
-      transition: transform 0.3s ease;
-    }
-
-    .cta button:hover {
-      transform: scale(1.05);
-    }
-
-    .email-form {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
-    .email-form input {
-      padding: 0.7rem;
-      border-radius: 25px;
-      border: none;
-      width: 250px;
-      margin-right: 0.5rem;
-    }
-
-    .email-form button {
-      background: #00cfc1;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 25px;
-      color: white;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.95rem;
-      color: #888;
-    }
-
-    a {
-      color: #00cfc1;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
-      section {
-        padding: 1.2rem;
-      }
     }
   </style>
 </head>
 <body>
-  <video id="bg-video" autoplay muted loop playsinline>
-    <source src="https://cdn.pixabay.com/vimeo/772660879/drones-138300.mp4?width=1280&hash=3f9e8b7c857b8a574e3590c509bda0f5df0a2277" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <!-- существующий код -->
 
-  <nav>
-    <div class="logo">GuardPilot</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#benefits">Benefits</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="lang-switch">EN | RU</div>
-  </nav>
+  <script>
+    // Preloader
+    window.addEventListener('load', function () {
+      document.getElementById('preloader').style.display = 'none';
+    });
 
-  <div class="container">
-    <header>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Shield_icon.svg/2048px-Shield_icon.svg.png" alt="GuardPilot Logo" />
-      <h1>GuardPilot</h1>
-      <p class="sub">Autonomous Security Drone for Smart Surveillance</p>
-    </header>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
 
-    <section id="about">
-      <h2>About the Project</h2>
-      <p>GuardPilot is an autonomous drone-based security solution designed for 24/7 monitoring of industrial and private areas. It offers a smarter, safer, and more cost-effective way to secure your perimeter.</p>
-    </section>
+    function closeMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.remove('show');
+    }
 
-    <section id="features">
-      <h2>Key Features</h2>
-      <p>- Autonomous patrolling with real-time alerts<br>
-         - Intrusion detection and facial recognition<br>
-         - Controlled via secure mobile/web application<br>
-         - Works day and night, in all weather conditions</p>
-    </section>
+    function toggleFAQ(item) {
+      const p = item.querySelector('p');
+      if (p.style.display === 'block') {
+        p.style.display = 'none';
+      } else {
+        p.style.display = 'block';
+      }
+    }
 
-    <section id="benefits">
-      <h2>Benefits</h2>
-      <p>Save costs on human security, reduce response time, and ensure reliable surveillance coverage with our intelligent drone technology.</p>
-    </section>
+    // Плавное появление всех секций при скролле и кнопка вверх
+    window.addEventListener('scroll', function () {
+      const sections = document.querySelectorAll('.animate-section');
+      const screenPosition = window.innerHeight / 1.3;
 
-    <div class="cta">
-      <button>Watch Demo</button>
-    </div>
+      sections.forEach(section => {
+        const sectionPosition = section.getBoundingClientRect().top;
+        if (sectionPosition < screenPosition) {
+          section.classList.add('visible');
+        }
+      });
 
-    <div class="email-form" id="contact">
-      <p>Subscribe to get updates:</p>
-      <input type="email" placeholder="Enter your email">
-      <button>Submit</button>
-    </div>
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollTopBtn.style.display = 'block';
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
 
-    <footer>
-      Telegram: <a href="https://t.me/JV_Guard">@JV_Guard</a> | Email: <a href="mailto:chyikin99@gmail.com">chyikin99@gmail.com</a>
-    </footer>
-  </div>
+      // Подсветка активного пункта меню
+      let sectionsArray = ['about', 'features', 'benefits', 'contact'];
+      sectionsArray.forEach(id => {
+        let section = document.getElementById(id);
+        let link = document.querySelector(`nav ul li a[href='#${id}']`);
+        if (section && link) {
+          let rect = section.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      });
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showSuccessMessage() {
+      setTimeout(function () {
+        document.getElementById('success-message').style.display = 'block';
+      }, 500);
+    }
+  </script>
 </body>
 </html>
 
