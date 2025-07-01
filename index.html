@@ -7,22 +7,22 @@
   <meta name="description" content="GuardPilot is an autonomous security drone for smart and reliable surveillance.">
   <meta name="keywords" content="GuardPilot, Security Drone, Surveillance, Autonomous Drone, Smart Security">
   <meta name="author" content="GuardPilot Team">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="{final_logo_path}" type="image/png">
   <style>
-    html {
+    html {{
       scroll-behavior: smooth;
       font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
       margin: 0;
       padding: 0;
-    }
-    body {
+    }}
+    body {{
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 20px;
-    }
-    header {
+    }}
+    header {{
       position: fixed;
       top: 0;
       width: 100%;
@@ -33,35 +33,40 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-    }
-    header h1 {
-      color: #00cfc1;
-      margin: 0;
-    }
-    nav a {
+    }}
+    header .logo {{
+      display: flex;
+      align-items: center;
+    }}
+    header .logo img {{
+      height: 60px;
+      margin-right: 15px;
+      border-radius: 8px;
+    }}
+    nav a {{
       color: white;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
-    }
-    nav a:hover {
+    }}
+    nav a:hover {{
       color: #ff7a00;
-    }
-    #hero {
+    }}
+    #hero {{
       margin-top: 80px;
       padding: 0;
       position: relative;
       overflow: hidden;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0, 207, 193, 0.3);
-    }
-    #hero video {
+    }}
+    #hero video {{
       width: 100%;
       height: auto;
       display: block;
-    }
-    #hero .content {
+    }}
+    #hero .content {{
       position: absolute;
       top: 50%;
       left: 50%;
@@ -70,12 +75,12 @@
       background: rgba(0, 0, 0, 0.5);
       padding: 30px;
       border-radius: 15px;
-    }
-    #hero .content h2 {
+    }}
+    #hero .content h2 {{
       font-size: 2.5rem;
       margin-bottom: 20px;
-    }
-    #hero .content a {
+    }}
+    #hero .content a {{
       display: inline-block;
       padding: 15px 30px;
       background-color: #ff7a00;
@@ -84,12 +89,12 @@
       border-radius: 5px;
       font-weight: bold;
       transition: background-color 0.3s, transform 0.3s;
-    }
-    #hero .content a:hover {
+    }}
+    #hero .content a:hover {{
       background-color: #e96b00;
       transform: scale(1.05);
-    }
-    section {
+    }}
+    section {{
       margin: 100px 0;
       padding: 30px;
       background: rgba(34, 34, 34, 0.95);
@@ -98,21 +103,21 @@
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 1s ease, transform 1s ease;
-    }
-    section.visible {
+    }}
+    section.visible {{
       opacity: 1;
       transform: translateY(0);
-    }
-    h2, h3 {
+    }}
+    h2, h3 {{
       color: #00cfc1;
       margin-bottom: 20px;
-    }
-    .why-us {
+    }}
+    .why-us {{
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-    }
-    .why-us .feature {
+    }}
+    .why-us .feature {{
       flex: 1 1 250px;
       margin: 10px;
       padding: 20px;
@@ -121,23 +126,23 @@
       text-align: center;
       box-shadow: 0 0 15px rgba(0, 207, 193, 0.5);
       transition: transform 0.3s;
-    }
-    .why-us .feature:hover {
+    }}
+    .why-us .feature:hover {{
       transform: translateY(-10px);
-    }
-    .why-us .feature img {
+    }}
+    .why-us .feature img {{
       width: 80px;
       height: 80px;
       margin-bottom: 15px;
-    }
-    .contact-form input, .contact-form textarea {
+    }}
+    .contact-form input, .contact-form textarea {{
       width: 100%;
       margin-bottom: 15px;
       padding: 15px;
       border: none;
       border-radius: 8px;
-    }
-    .contact-form button {
+    }}
+    .contact-form button {{
       background-color: #00cfc1;
       color: white;
       padding: 15px 30px;
@@ -145,42 +150,45 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
-    }
-    .contact-form button:hover {
+    }}
+    .contact-form button:hover {{
       background-color: #00a99d;
       transform: scale(1.05);
-    }
-    .socials a {
+    }}
+    .socials a {{
       margin: 0 10px;
       color: #00cfc1;
       text-decoration: none;
       font-size: 1.5rem;
-    }
-    .socials a:hover {
+    }}
+    .socials a:hover {{
       color: #00a99d;
-    }
-    footer {
+    }}
+    footer {{
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
       color: #888;
-    }
-    @media (max-width: 768px) {
-      .why-us {
+    }}
+    @media (max-width: 768px) {{
+      .why-us {{
         flex-direction: column;
         align-items: center;
-      }
-      nav {
+      }}
+      nav {{
         display: flex;
         flex-direction: column;
-      }
-    }
+      }}
+    }}
   </style>
 </head>
 <body>
 
 <header>
- <img src="logo.png" alt="GuardPilot Logo" style="height: 50px;">
+  <div class="logo">
+    <img src="{final_logo_path}" alt="GuardPilot Logo">
+    <h1>GuardPilot</h1>
+  </div>
   <nav>
     <a href="#hero">Home</a>
     <a href="#why-us">Why Us</a>
@@ -203,22 +211,22 @@
 
 <section id="why-us" class="animate-section why-us">
   <div class="feature">
-    <img src="icon-autonomous.png" alt="Autonomous Icon">
+    <img src="{final_logo_path}" alt="Autonomous Icon">
     <h3>Autonomous</h3>
     <p>Fully AI-powered autonomous patrol and response.</p>
   </div>
   <div class="feature">
-    <img src="icon-mobile.png" alt="Mobile Control Icon">
+    <img src="{final_logo_path}" alt="Mobile Control Icon">
     <h3>Mobile Control</h3>
     <p>Instant manual override and real-time control via app.</p>
   </div>
   <div class="feature">
-    <img src="icon-integration.png" alt="Easy Integration Icon">
+    <img src="{final_logo_path}" alt="Easy Integration Icon">
     <h3>Easy Integration</h3>
     <p>Seamlessly integrates with your existing security systems.</p>
   </div>
   <div class="feature">
-    <img src="icon-alerts.png" alt="Instant Alerts Icon">
+    <img src="{final_logo_path}" alt="Instant Alerts Icon">
     <h3>Instant Alerts</h3>
     <p>Real-time threat detection and immediate notifications.</p>
   </div>
@@ -257,17 +265,17 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  const observer = new IntersectionObserver(entries => {{
+    entries.forEach(entry => {{
+      if (entry.isIntersecting) {{
         entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+      }}
+    }});
+  }}, {{ threshold: 0.1 }});
 
-  document.querySelectorAll('.animate-section').forEach(section => {
+  document.querySelectorAll('.animate-section').forEach(section => {{
     observer.observe(section);
-  });
+  }});
 </script>
 
 </body>
