@@ -48,8 +48,49 @@
     nav a:hover {
       color: #ff7a00;
     }
+    #hero {
+      margin-top: 80px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 207, 193, 0.3);
+    }
+    #hero video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    #hero .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+    }
+    #hero .content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    #hero .content a {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff7a00;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    #hero .content a:hover {
+      background-color: #e96b00;
+      transform: scale(1.05);
+    }
     section {
-      margin: 120px 0;
+      margin: 100px 0;
       padding: 30px;
       background: rgba(34, 34, 34, 0.95);
       border-radius: 15px;
@@ -65,20 +106,6 @@
     h2, h3 {
       color: #00cfc1;
       margin-bottom: 20px;
-    }
-    a.button {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #ff7a00;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-    a.button:hover {
-      background-color: #e96b00;
-      transform: scale(1.05);
     }
     .why-us {
       display: flex;
@@ -97,6 +124,11 @@
     }
     .why-us .feature:hover {
       transform: translateY(-10px);
+    }
+    .why-us .feature img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
     }
     .contact-form input, .contact-form textarea {
       width: 100%;
@@ -158,26 +190,36 @@
 </header>
 
 <section id="hero" class="animate-section">
-  <h2>Your Autonomous Security Partner</h2>
-  <p>AI-powered drones that patrol, alert, and protect — all controlled via your smartphone.</p>
-  <a href="#contact" class="button">Get a Demo</a>
+  <video autoplay muted loop>
+    <source src="demo-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="content">
+    <h2>Your Autonomous Security Partner</h2>
+    <p>AI-powered drones that patrol, alert, and protect — all controlled via your smartphone.</p>
+    <a href="#contact">Get a Demo</a>
+  </div>
 </section>
 
 <section id="why-us" class="animate-section why-us">
   <div class="feature">
-    <h3>🚀 Autonomous</h3>
+    <img src="icon-autonomous.png" alt="Autonomous Icon">
+    <h3>Autonomous</h3>
     <p>Fully AI-powered autonomous patrol and response.</p>
   </div>
   <div class="feature">
-    <h3>📲 Mobile Control</h3>
+    <img src="icon-mobile.png" alt="Mobile Control Icon">
+    <h3>Mobile Control</h3>
     <p>Instant manual override and real-time control via app.</p>
   </div>
   <div class="feature">
-    <h3>💡 Easy Integration</h3>
+    <img src="icon-integration.png" alt="Easy Integration Icon">
+    <h3>Easy Integration</h3>
     <p>Seamlessly integrates with your existing security systems.</p>
   </div>
   <div class="feature">
-    <h3>⚡ Instant Alerts</h3>
+    <img src="icon-alerts.png" alt="Instant Alerts Icon">
+    <h3>Instant Alerts</h3>
     <p>Real-time threat detection and immediate notifications.</p>
   </div>
 </section>
@@ -185,10 +227,10 @@
 <section id="how-it-works" class="animate-section">
   <h2>How It Works</h2>
   <ul>
-    <li>🚀 Step 1: Launch drone patrol via mobile app.</li>
-    <li>🛰️ Step 2: Real-time monitoring and AI-based threat detection.</li>
-    <li>⚡ Step 3: Instant alerts and optional manual intervention.</li>
-    <li>📊 Step 4: Automatic reporting and patrol logs.</li>
+    <li>Step 1: Launch drone patrol via mobile app.</li>
+    <li>Step 2: Real-time monitoring and AI-based threat detection.</li>
+    <li>Step 3: Instant alerts and optional manual intervention.</li>
+    <li>Step 4: Automatic reporting and patrol logs.</li>
   </ul>
 </section>
 
@@ -215,7 +257,6 @@
 </footer>
 
 <script>
-  // Scroll animation
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
