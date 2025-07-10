@@ -6,7 +6,7 @@
   <meta name="description" content="GuardPilot – Autonomous Security Drone Platform" />
   <meta name="keywords" content="Security, Drone, AI, Surveillance, GuardPilot" />
   <meta name="author" content="GuardPilot Team" />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <title>GuardPilot – Autonomous Drone Security</title>
 </head>
 <body>
@@ -24,28 +24,51 @@
   </header>
 
   <section id="hero">
-    <img src="assets/logo.svg" alt="GuardPilot Logo" class="logo" />
+    <img src="logo.svg" alt="GuardPilot Logo" class="logo" />
     <h1>АВТОНОМНЫЕ ДРОНЫ-ОХРАННИКИ 24/7</h1>
     <p>Премиум безопасность с ИИ-аналитикой и мгновенным реагированием</p>
     <button onclick="scrollToSection('demo')">▶️ ДЕМО-ВИДЕО</button>
     <button onclick="scrollToSection('contact')">📞 ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
-    <img src="assets/drone.svg" alt="3D Drone" class="hero-drone" />
+    <img src="drone.svg" alt="3D Drone" class="hero-drone" />
   </section>
 
   <section id="mvp">
     <h2>ТЕХНОЛОГИЯ GUARDPILOT В ДЕЙСТВИИ</h2>
-    <img src="assets/mvp-diagram.svg" alt="MVP Diagram" />
+    <img src="mvp-diagram.svg" alt="MVP Diagram" />
+  </section>
+
+  <section id="hardware">
+    <h2>ПРОФЕССИОНАЛЬНАЯ АППАРАТНАЯ ПЛАТФОРМА</h2>
+    <!-- Hardware info -->
+  </section>
+
+  <section id="usecases">
+    <h2>СЦЕНАРИИ ПРИМЕНЕНИЯ</h2>
+    <video controls width="100%">
+      <source src="demo.mp4" type="video/mp4" />
+      <track kind="subtitles" src="subtitles.vtt" srclang="ru" label="Русский" default />
+    </video>
   </section>
 
   <section id="pitch">
     <h2>ИНВЕСТОРСКИЙ ПИТЧ-ДЕК</h2>
-    <iframe src="assets/GuardPilot_PitchDeck.pdf" width="100%" height="600px"></iframe>
+    <iframe src="GuardPilot_PitchDeck.pdf" width="100%" height="600px"></iframe>
+  </section>
+
+  <section id="contact">
+    <h2>СВЯЖИТЕСЬ С НАМИ</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Имя" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+      <button type="submit">Отправить запрос</button>
+    </form>
   </section>
 
   <footer>
     <p>© 2025 GuardPilot. All rights reserved.</p>
   </footer>
 
-  <script src="scripts/main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
